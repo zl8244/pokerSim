@@ -38,4 +38,8 @@ public class Deck {
             deckofCards.set(i, sortedDeck.get(i));
         }
     }
+
+    public Card dealCard() {
+        return deckofCards.remove(0);
+    }
 }

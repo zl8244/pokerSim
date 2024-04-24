@@ -1,4 +1,18 @@
 public class Poker {
+
+    enum PokerHands{
+        HighCard,
+        OnePair,
+        TwoPair,
+        ThreeOfAKind,
+        Straight,
+        Flush,
+        FullHouse,
+        FourOfAKind,
+        StraightFlush,
+        RoyalFlush
+    }
+
     public static void main(String[] args) {
         Deck deck = new Deck();
         int[] ranks = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13};
@@ -9,10 +23,8 @@ public class Poker {
                 deck.addCardToDeck(c);
             }
         }
-        // deck.printDeck();
-        // deck.shuffle();
-        // deck.printDeck();
-        // deck.resetDeck();
-        // deck.printDeck();
+        Card[] hand = new Card[2];
+        hand[0] = deck.dealCard();
+        hand[1] = deck.dealCard();
     }
 }
