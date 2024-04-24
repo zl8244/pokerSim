@@ -9,8 +9,10 @@ public class Poker {
                 deck.addCardToDeck(c);
             }
         }
-        deck.printDeck();
-        deck.shuffle();
-        deck.printDeck();
+        // deck.printDeck();
+        // deck.shuffle();
+        // deck.printDeck();
+        // deck.resetDeck();
+        // deck.printDeck();
     }
 }

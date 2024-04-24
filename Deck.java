@@ -3,9 +3,11 @@ import java.util.ArrayList;
 public class Deck {
 
     private ArrayList<Card> deckofCards = new ArrayList<>();
+    private final ArrayList<Card> sortedDeck = new ArrayList<>();
 
     public void addCardToDeck(Card card) {
         deckofCards.add(card);
+        sortedDeck.add(card);
     }
 
     public void printDeck() {
@@ -32,6 +34,8 @@ public class Deck {
     }
 
     public void resetDeck() {
-        //do something
+        for(int i = 0; i < deckofCards.size(); i++) {
+            deckofCards.set(i, sortedDeck.get(i));
+        }
     }
 }
