@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Poker {
 
     enum PokerHands{
@@ -23,8 +25,11 @@ public class Poker {
                 deck.addCardToDeck(c);
             }
         }
-        Card[] hand = new Card[2];
-        hand[0] = deck.dealCard();
-        hand[1] = deck.dealCard();
+        Player player = new Player("test");
+        player.drawCard(deck.dealCard());
+        ArrayList<Card> playerHand = player.getHand();
+        for (Card card : playerHand) {
+            System.out.println(card);
+        }
     }
 }
