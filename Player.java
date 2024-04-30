@@ -4,9 +4,15 @@ public class Player {
 
     private final String name;
     private ArrayList<Card> hand = new ArrayList<>();
+    private boolean isFolded;
+    private boolean isChecked;
+    private int chips;
 
     public Player(String name) {
         this.name = name;
+        isFolded = false;
+        isChecked = false;
+        chips = 1000;
     }
 
     public void drawCard(Card c) {
@@ -21,19 +27,34 @@ public class Player {
         return name;
     }
 
+    public int getChips() {
+        return chips;
+    }
+
     public void call() {
-        // do something
+        // decrease chips
+        isChecked = false;
     }
 
     public void raise() {
-        // do something
+        // decrease chips
+        isChecked = false;
     }
 
     public void check() {
-        // do something
+        isChecked = true;
     }
 
     public void fold() {
-        // do something
+        isFolded = true;
+    }
+
+    /**
+     * Called at the end of every round so that the player's state doesn't carry over
+     */
+    public void resetPlayer() {
+        isFolded = false;
+        isChecked = false;
+        hand.clear();
     }
 }
