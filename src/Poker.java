@@ -28,16 +28,25 @@ public class Poker {
         // This function should really be called at the end, when both players decided to not fold
     }
 
-    private static boolean isFlush(ArrayList<Card> hand) {
-        String suit = hand.get(0).getSuit();
-        boolean isFlush = true;
-        for (Card card : hand) {
+    private static boolean isFlush(Deck hand) {
+        String suit = hand.getDeck().get(0).getSuit();
+        for (Card card : hand.getDeck()) {
             if(!card.getSuit().equals(suit)) {
-                isFlush = false;
-                break;
+                return false;
             }
         }
-        return isFlush;
+        return true;
+    }
+
+    private static boolean isStraight(Deck hand) {
+        hand.sortByRank();
+        Card prevCard = new Card(hand.getDeck().get(0).getRank(), hand.getDeck().get(0).getSuit());
+        for(int i = 1; i < hand.getDeck().size(); i++) {
+            if(hand.getDeck().get(i).getRank() != prevCard.getRank()+1) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public static void main(String[] args) {

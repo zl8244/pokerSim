@@ -1,10 +1,9 @@
 package src;
-import java.util.ArrayList;
 
 public class Player {
 
     private final String name;
-    private ArrayList<Card> hand = new ArrayList<>();
+    private Deck hand = new Deck();
     private boolean isFolded;
     private boolean isChecked;
     private int chips;
@@ -17,10 +16,10 @@ public class Player {
     }
 
     public void drawCard(Card c) {
-        hand.add(c);
+        hand.addCardToDeck(c);
     }
 
-    public ArrayList<Card> getHand() {
+    public Deck getHand() {
         return hand;
     }
 
@@ -56,6 +55,6 @@ public class Player {
     public void resetPlayer() {
         isFolded = false;
         isChecked = false;
-        hand.clear();
+        hand.clearDeck();
     }
 }

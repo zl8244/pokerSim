@@ -4,17 +4,19 @@ import java.util.ArrayList;
 public class Deck {
 
     private ArrayList<Card> deckofCards = new ArrayList<>();
-    private final ArrayList<Card> sortedDeck = new ArrayList<>();
 
     public void addCardToDeck(Card card) {
         deckofCards.add(card);
-        sortedDeck.add(card);
     }
 
     public void printDeck() {
         for (Card card : deckofCards) {
             System.out.println(card);
         }
+    }
+
+    public ArrayList<Card> getDeck() {
+        return deckofCards;
     }
 
     private void swapCards(int index1, int index2) {
@@ -52,7 +54,7 @@ public class Deck {
         }
     }
 
-    public void sortDeck(String[] suitOrder) {
+    public void sortByRank() {
         // Sort by rank
         for (int i = 0; i < deckofCards.size(); i++) {
             for (int j = i + 1; j < deckofCards.size(); j++) {
@@ -63,6 +65,10 @@ public class Deck {
                 }
             }
         }
+    }
+
+    public void sortDeck(String[] suitOrder) {
+        sortByRank();
     
         // Sort by suit order within groups of 4 cards
         for (int i = 0; i < deckofCards.size() - 3; i += 4) {
@@ -92,5 +98,9 @@ public class Deck {
 
     public Card dealCard() {
         return deckofCards.remove(0);
+    }
+
+    public void clearDeck() {
+        deckofCards.clear();
     }
 }
